@@ -1,0 +1,11 @@
+[package]
+name = "rusty_pi_cam"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+image = { version = "0.23.14", default-features = false, features = [
+    "png",
+    "jpeg",
+] }
+nokhwa = { version = "0.9.4", features = ["input-gst"] }
