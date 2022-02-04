@@ -23,7 +23,7 @@ The tested OS is [Raspberry Pi OS Lite](https://www.raspberrypi.com/software/ope
 Before you can start, you need some packages:
 
 ```sh
-sudo apt install vim git gstreamer1.0-plugins-good
+sudo apt install vim git gstreamer1.0-plugins-good libglib2.0-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libclang-dev
 ```
 
 Install rustup 
@@ -43,10 +43,12 @@ Change config to enable raspi cam.
 Change `/boot/config.txt`
 
 ```toml
-# camera_auto_detect=1
+camera_auto_detect=0
 [all]
 dtoverlay=imx219
 ```
+
+If you have a raspicam v1 (ov5647) use dtoverlay=ov5647
 
 ### Debug and Test Camera
 
@@ -61,4 +63,5 @@ vcgencmd get_camera
 sudo cam -l
 libcamera-still
 v4l2-ctl --list-formats
+libcamera-jpeg -o test.jpg
 ```
