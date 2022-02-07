@@ -1,11 +1,12 @@
 [package]
+edition = "2021"
 name = "rusty_pi_cam"
 version = "0.1.0"
-edition = "2021"
 
 [dependencies]
-image = { version = "0.23.14", default-features = false, features = [
-    "png",
-    "jpeg",
-] }
-nokhwa = { version = "0.9.4", features = ["input-gst"] }
+image = {version = "0.23.14", default-features = false, features = [
+  "png",
+  "jpeg",
+]}
+nokhwa = {version = "0.10", git = "https://github.com/chriamue/nokhwa", branch = "feature/input-libcamera", features = ["input-opencv"]}
+v4l = "0.12"
